@@ -1,0 +1,70 @@
+<MyBoxLayout>:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 10
+    canvas.before:
+        Color:
+            rgba: 0.9, 0.9, 0.9, 1  # Cor de fundo
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        Label:
+            text: 'Usuário'
+            color: 0, 0, 0, 1  # Cor do texto
+            font_size: '18sp'
+        TextInput:
+            id: user
+            on_text: root.controla_digitacao_user(self)
+            size_hint_x: 0.7
+            background_color: (1, 1, 1, 1)
+            foreground_color: (0, 0, 0, 1)
+            hint_text: 'Digite seu nome de usuário'
+            hint_text_color: 0.7, 0.7, 0.7, 1  # Cor do texto de dica
+            multiline: False
+
+    BoxLayout:
+        Label:
+            text: 'Senha'
+            color: 0, 0, 0, 1
+            font_size: '18sp'
+        TextInput:
+            id: senha
+            password: True
+            size_hint_x: 0.7
+            background_color: (1, 1, 1, 1)
+            foreground_color: (0, 0, 0, 1)
+            hint_text: 'Digite sua senha'
+            hint_text_color: 0.7, 0.7, 0.7, 1
+            halling: 'center'
+            vallign: 'middle'
+            multiline: False
+
+    BoxLayout:
+        Button:
+            text: 'Acessar'
+            on_press: root.Acessar()
+            background_color: 0.2, 0.6, 0.8, 1  # Cor de fundo do botão
+            color: 1, 1, 1, 1  # Cor do texto
+            font_size: '16sp'
+            size_hint_x: 0.45
+            border_radius: [15, 15, 15, 15]  # Bordas arredondadas
+
+        Button:
+            text: 'Cadastrar'
+            on_press: root.Cadastrar()
+            background_color: 0.4, 0.8, 0.4, 1
+            color: 1, 1, 1, 1
+            font_size: '16sp'
+            size_hint_x: 0.45
+            border_radius: [15, 15, 15, 15]
+
+    BoxLayout:
+        Label:
+            id: usuario_status
+            text: ''
+            color: 0, 0, 0, 1  # Cor do texto de status
+            font_size: '16sp'
+            size_hint_y: None
+            height: '30dp'
